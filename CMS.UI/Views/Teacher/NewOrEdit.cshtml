@@ -1,0 +1,95 @@
+﻿@model CMS.Services.Teacher.ViewModel.TeacherVM
+@{ string curd = @ViewBag.PageUrl;}
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    @Html.Partial("_Breadcrumb")
+
+    <div ng-app="myApp">
+
+        <div class="row" ng-controller="teacher-controller" data-ng-init="onloadFun()">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card-title">
+                                    @ViewBag.ActionName
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="float:right">
+                                    <a href="/Teacher/Index" title="Index" class="link-edit"><i class="fa fa-list"></i>List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" name="TeacherForm" novalidate role="form">
+                            <input class="form-control" readonly="readonly" id="TeacherId" name="TeacherId" value="@Model.TeacherId"
+                                   ng-model="TeacherId" type="hidden" placeholder="Teacher id will generate automatically" />
+
+                            <div class="form-group row">
+                                <label for="TeacherName" class="col-md-3 col-form-label">Teacher Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="TeacherName" placeholder="Name" ng-model="TeacherName" autofocus ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="TeacherForm.TeacherName.$error.required && TeacherForm.TeacherName.$dirty">Teacher name is required</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="BirthDate" class="col-md-3 col-form-label">Birth Date</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="BirthDate" class="form-control" placeholder="DD/MM/YYYY" ng-model="BirthDate" ng-required="true" readonly="readonly">
+                                    <span class="help-block" style="color:red;" ng-if="TeacherForm.BirthDate.$error.required && TeacherForm.BirthDate.$dirty">Birth date is required</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="Salary" class="col-md-3 col-form-label">Salary</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="Salary" placeholder="Registration Number" ng-model="Salary" ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="TeacherForm.Salary.$error.required && TeacherForm.Salary.$dirty">Salary is required</span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-md-9 offset-md-3">
+                                    <button type="button" class="btn btn-danger" ng-click="resetData()"><i class="fa fa-times"></i> CANCEL</button>
+
+                                    @if (Model.TeacherId > 0)
+                                    {
+                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()" ng-disabled="TeacherForm.$invalid"><i class="fa fa-check-square-o"></i> Update</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()" ng-disabled="TeacherForm.$invalid"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                    }
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/Services/TeacherService.js"></script>
+    <script src="~/Scripts/app/Controllers/TeacherController.js"></script>
+    <script>
+        $('#BirthDate').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: 'dd/mm/yyyy'
+        });
+    </script>
+}
+
+

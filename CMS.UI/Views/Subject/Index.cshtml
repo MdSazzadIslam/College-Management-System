@@ -1,0 +1,77 @@
+﻿@model List<CMS.Services.Course.ViewModels.CourseVM>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-app="myApp">
+
+    <div class="row" ng-controller="subject-controller" data-ng-init="getSubject()">
+        <div class="container-fluid">
+            @Html.Partial("_Breadcrumb")
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card-title">
+                                @ViewBag.ActionName
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="float:right">
+                                <a href="/Subject/New" title="Add" class="link-edit"><i class="fa fa-Plus"></i>Add</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="input-group mb-3">
+                        <input type="text" ng-model="searchBy" ng-change="getSubjectById(searchBy)" class="form-control" placeholder="Enter any keyword for searching...">
+                        <div class="input-group-append">
+                            <span class="input-group-text">Search</span>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Subject Name</th>
+                                    <th scope="col">Subject Code</th>
+                                    <th scope="col">Subject Credit</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="subject in Subjects">
+                                    <td>{{subject.SubjectId}}</td>
+                                    <td>{{subject.CourseName}}</td>
+                                    <td>{{subject.SubjectCode}}</td>
+                                    <td>{{subject.SubjectName}}</td>
+                                    <td>{{subject.SubjectCredit}}</td>
+                                    <td>
+                                        <a href="#" id="btnDelete" data-toggle="modal" data-target="#deleteDialog" title="Delete" class="link-delete" ng-click="delete(subject.SubjectId)"><i class="fa fa-times"></i></a>
+                                        <a href="/@ViewBag.PageUrl/edit/{{subject.SubjectId}}" title="Edit" class="link-edit redirect-link"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/Services/SubjectService.js"></script>
+    <script src="~/Scripts/app/Controllers/SubjectController.js"></script>
+}

@@ -1,0 +1,60 @@
+﻿@model List<CMS.Services.Course.ViewModels.CourseListVM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-app="myApp">
+
+    <div class="row" ng-controller="course-controller" data-ng-init="getCourseDetails()">
+        <div class="container-fluid">
+            @Html.Partial("_Breadcrumb")
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card-title">
+                                @ViewBag.ActionName
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Course Code</th>
+                                    <th scope="col">No Of Teacher</th>
+                                    <th scope="col">No Of Student</th>
+                                    <th scope="col">Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="course in CourseDetails">
+                                    <td>{{course.CourseId}}</td>
+                                    <td>{{course.CourseName}}</td>
+                                    <td>{{course.CourseCode}}</td>
+                                    <td>{{course.NoOfTeacher}}</td>
+                                    <td>{{course.NoOfStudent}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/Services/CourseService.js"></script>
+    <script src="~/Scripts/app/Controllers/CourseController.js"></script>
+}

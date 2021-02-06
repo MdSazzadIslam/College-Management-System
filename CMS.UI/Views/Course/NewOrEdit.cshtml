@@ -1,0 +1,92 @@
+﻿@model CMS.Services.Course.ViewModels.CourseVM
+@{ string curd = @ViewBag.PageUrl;}
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    @Html.Partial("_Breadcrumb")
+
+    <div ng-app="myApp">
+
+        <div class="row" ng-controller="course-controller" data-ng-init="onloadFun()">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card-title">
+                                    @ViewBag.ActionName
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="float:right">
+                                    <a href="/Course/Index" title="Index" class="link-edit"><i class="fa fa-list"></i>List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body">
+                        <form class="form-horizontal" name="CourseForm" novalidate role="form">
+                            <input class="form-control" readonly="readonly" id="CourseId" name="CourseId" value="@Model.CourseId"
+                                   ng-model="CourseId" type="hidden" placeholder="d will generate automatically" />
+
+                            <div class="form-group row">
+                                <label for="CourseCode" class="col-md-3 col-form-label">Course Code</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="CourseCode" placeholder="Course Code" ng-model="CourseCode" autofocus ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="CourseForm.CourseCode.$error.required && CourseForm.CourseCode.$dirty">Course code is required</span>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="CourseName" class="col-md-3 col-form-label">Course Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="CourseName" placeholder="Course Name" ng-model="CourseName" ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="CourseForm.CourseName.$error.required && CourseForm.CourseName.$dirty">Course name is required</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="CourseName" class="col-md-3 col-form-label">Course Credit</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="CourseCredit" placeholder="Course Credit" ng-model="CourseCredit" ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="CourseForm.CourseCredit.$error.required && CourseForm.CourseCredit.$dirty">Course name is required</span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-md-9 offset-md-3">
+                                    <button type="button" class="btn btn-danger" ng-click="resetData()"><i class="fa fa-times"></i> RESET</button>
+
+                                    @if (Model.CourseId > 0)
+                                    {
+                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()" ng-disabled="CourseForm.$invalid"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()" ng-disabled="CourseForm.$invalid"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                    }
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+    @section scripts{
+        <script src="~/Scripts/app/app.js"></script>
+        <script src="~/Scripts/app/Services/CourseService.js"></script>
+        <script src="~/Scripts/app/Controllers/CourseController.js"></script>
+    }

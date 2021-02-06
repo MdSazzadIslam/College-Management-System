@@ -1,0 +1,99 @@
+﻿@model CMS.Services.Grade.ViewModel.GradeVM
+@{ string curd = @ViewBag.PageUrl;}
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    @Html.Partial("_Breadcrumb")
+
+    <div ng-app="myApp">
+
+        <div class="row" ng-controller="grade-controller">
+            <div class="col-lg-12" data-ng-init="onloadFun()">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card-title">
+                                    @ViewBag.ActionName
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="float:right">
+                                    <a href="/Grade/Index" title="Index" class="link-edit"><i class="fa fa-list"></i>List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" name="GradeForm" novalidate role="form">
+
+                            <input class="form-control" readonly="readonly" id="GradeId" name="GradeId" value="@Model.GradeId"
+                                   ng-model="GradeId" type="hidden" placeholder="Grade id will generate automatically" />
+
+                            <div class="form-group row">
+                                <label for="GradeName" class="col-md-3 col-form-label">Grade Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="GradeName" placeholder="Grade Name" ng-model="GradeName" autofocus ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="GradeForm.GradeName.$error.required && GradeForm.GradeName.$dirty">Course code is required</span>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="GradeName" class="col-md-3 col-form-label">Grade Point</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="GradePoint" placeholder="Grade point" ng-model="GradePoint" ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="GradeForm.GradePoint.$error.required && GradeForm.GradePoint.$dirty">Course code is required</span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="ScoreFrom" class="col-md-3 col-form-label">Range From</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="ScoreFrom" placeholder="Range From" ng-model="ScoreFrom" ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="GradeForm.ScoreFrom.$error.required && GradeForm.ScoreFrom.$dirty">Course code is required</span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="ScoreTo" class="col-md-3 col-form-label">Range To</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="ScoreTo" placeholder="Range From" ng-model="ScoreTo" ng-required="true">
+                                    <span class="help-block" style="color:red;" ng-if="GradeForm.ScoreTo.$error.required && GradeForm.ScoreTo.$dirty">Course code is required</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-md-9 offset-md-3">
+                                    <button type="button" class="btn btn-danger" ng-click="resetData()"><i class="fa fa-times"></i> RESET</button>
+
+                                    @if (Model.GradeId > 0)
+                                    {
+                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()" ng-disabled="GradeForm.$invalid"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()" ng-disabled="GradeForm.$invalid"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                    }
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/Services/GradeService.js"></script>
+    <script src="~/Scripts/app/Controllers/GradeController.js"></script>
+}
+

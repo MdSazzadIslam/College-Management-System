@@ -1,0 +1,67 @@
+﻿@model List<CMS.Services.Student.ViewModel.StudentDetailsVM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-app="myApp">
+
+    <div class="row" ng-controller="student-controller" data-ng-init="getStudentDetails()">
+        <div class="container-fluid">
+            @Html.Partial("_Breadcrumb")
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card-title">
+                                @ViewBag.ActionName
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Registration No</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Subject Name</th>
+                                    <th scope="col">Subject Code</th>
+                                    <th scope="col">Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="Student in StudentDetails">
+                                    <td>{{Student.StudentId}}</td>
+                                    <td>{{Student.StudentName}}</td>
+                                    <td>{{Student.RegistrationNo}}</td>
+                                    <td>{{Student.CourseName}}</td>
+                                    <td>{{Student.SubjectName}}</td>
+                                    <td>{{Student.SubjectCode}}</td>
+                                    <td>{{Student.Grade}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/Services/StudentService.js"></script>
+    <script src="~/Scripts/app/Controllers/StudentController.js"></script>
+}
+
+
+

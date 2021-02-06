@@ -1,0 +1,87 @@
+﻿@model CMS.Services.TeacherEnrollment.ViewModel.TeacherEnrollmentVM
+@{ string curd = @ViewBag.PageUrl;}
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    @Html.Partial("_Breadcrumb")
+
+    <div ng-app="myApp">
+
+        <div class="row" ng-controller="teacherEnrollment-controller" data-ng-init="onloadFun()">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card-title">
+                                    @ViewBag.ActionName
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="float:right">
+                                    <a href="/TeacherEnrollment/Index" title="Index" class="link-edit"><i class="fa fa-list"></i>List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="AddNewForm" name="AddNewForm" novalidate>
+                            <input class="form-control" readonly="readonly" id="TeacherEnrollmentId" name="TeacherEnrollmentId" value="@Model.TeacherEnrollmentId"
+                                   ng-model="TeacherEnrollmentId" type="hidden" placeholder="Teacher Enrollment Id will generate automatically" />
+
+                            <div class="form-group row">
+                                <label for="TeacherId" class="col-md-3 col-form-label">Teacher Name</label>
+                                <div class="col-md-9">
+                                    <select class="form-control single-select" ng-options="Teacher.TeacherId as Teacher.TeacherName for Teacher in Teachers" ng-model="TeacherId" id="TeacherId"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="CourseId" class="col-md-3 col-form-label">Course Name</label>
+                                <div class="col-md-9">
+                                    <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" ng-change="GetSubjectByCourseId(CourseId)" id="CourseId"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="CourseId" class="col-md-3 col-form-label">Subject Name</label>
+                                <div class="col-md-9">
+                                    <select class="form-control single-select" ng-options="subject.SubjectId as subject.SubjectName for subject in Subjects" ng-model="SubjectId" id="SubjectId"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-9 offset-md-3">
+                                    <button type="button" class="btn btn-danger" ng-click="resetData()"><i class="fa fa-times"></i> CANCEL</button>
+
+                                    @if (Model.TeacherEnrollmentId > 0)
+                                    {
+                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()"><i class="fa fa-check-square-o"></i> Update</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                    }
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/Services/TeacherEnrollmentService.js"></script>
+    <script src="~/Scripts/app/Controllers/TeacherEnrollmentController.js"></script>
+    <script>
+        $('.single-select').select2();
+    </script>
+}
+
+
