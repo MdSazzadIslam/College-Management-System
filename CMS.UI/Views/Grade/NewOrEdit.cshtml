@@ -35,17 +35,22 @@
                             <div class="form-group row">
                                 <label for="GradeName" class="col-md-3 col-form-label">Grade Name</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="GradeName" placeholder="Grade Name" ng-model="GradeName" autofocus ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="GradeForm.GradeName.$error.required && GradeForm.GradeName.$dirty">Course code is required</span>
+                                    <input type="text" class="form-control" id="GradeName" name="GradeName" placeholder="Grade Name" ng-model="GradeName" autofocus ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="GradeForm.GradeName.$error.required && GradeForm.GradeName.$dirty">Course code is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="GradeForm.GradeName.$touched && GradeForm.GradeName.$error.required">Grade name is required.</span>
 
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="GradeName" class="col-md-3 col-form-label">Grade Point</label>
+                                <label for="GradePoint" class="col-md-3 col-form-label">Grade Point</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="GradePoint" placeholder="Grade point" ng-model="GradePoint" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="GradeForm.GradePoint.$error.required && GradeForm.GradePoint.$dirty">Course code is required</span>
+                                    <input type="text" class="form-control" id="GradePoint" name="GradePoint" placeholder="Grade point" ng-model="GradePoint" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="GradeForm.GradePoint.$error.required && GradeForm.GradePoint.$dirty">Course code is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="GradeForm.GradePoint.$touched && GradeForm.GradePoint.$error.required">Grade point is required.</span>
+
                                 </div>
                             </div>
 
@@ -53,16 +58,22 @@
                             <div class="form-group row">
                                 <label for="ScoreFrom" class="col-md-3 col-form-label">Range From</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="ScoreFrom" placeholder="Range From" ng-model="ScoreFrom" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="GradeForm.ScoreFrom.$error.required && GradeForm.ScoreFrom.$dirty">Course code is required</span>
+                                    <input type="text" class="form-control" id="ScoreFrom" name="ScoreFrom" placeholder="Range From" ng-model="ScoreFrom" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="GradeForm.ScoreFrom.$error.required && GradeForm.ScoreFrom.$dirty">Course code is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="GradeForm.ScoreFrom.$touched && GradeForm.ScoreFrom.$error.required">Score from is required.</span>
+
                                 </div>
 
                             </div>
                             <div class="form-group row">
                                 <label for="ScoreTo" class="col-md-3 col-form-label">Range To</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="ScoreTo" placeholder="Range From" ng-model="ScoreTo" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="GradeForm.ScoreTo.$error.required && GradeForm.ScoreTo.$dirty">Course code is required</span>
+                                    <input type="text" class="form-control" id="ScoreTo" name="ScoreTo" placeholder="Range From" ng-model="ScoreTo" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="GradeForm.ScoreTo.$error.required && GradeForm.ScoreTo.$dirty">Course code is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="GradeForm.ScoreTo.$touched && GradeForm.ScoreTo.$error.required">Score to is required.</span>
+
                                 </div>
 
                             </div>

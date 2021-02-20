@@ -27,32 +27,44 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form id="AddNewForm" name="AddNewForm" novalidate>
+                        <form id="studentEnrollmentForm" name="studentEnrollmentForm" novalidate role="form">
                             <input class="form-control" readonly="readonly" id="StudentEnrollmentId" name="StudentEnrollmentId" value="@Model.StudentEnrollmentId"
                                    ng-model="StudentEnrollmentId" type="hidden" placeholder="Student Enrollment Id will generate automatically" />
 
                             <div class="form-group row">
                                 <label for="StudentId" class="col-md-3 col-form-label">Student Name</label>
                                 <div class="col-md-9">
-                                    <select class="form-control single-select" ng-options="student.StudentId as student.StudentName for student in Students" ng-model="StudentId" id="StudentId"></select>
+                                    <select class="form-control single-select" ng-options="student.StudentId as student.StudentName for student in Students" ng-model="StudentId" id="StudentId" name="StudentId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="studentEnrollmentForm.StudentId.$touched && studentEnrollment.StudentId.$error.required">Student name is required.</span>
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="CourseId" class="col-md-3 col-form-label">Course Name</label>
                                 <div class="col-md-9">
-                                    <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" ng-change="GetSubjectByCourseId(CourseId)" id="CourseId"></select>
+                                    <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" ng-change="GetSubjectByCourseId(CourseId)" id="CourseId" name="CourseId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="studentEnrollmentForm.CourseId.$touched && studentEnrollment.CourseId.$error.required">Course name is required.</span>
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="CourseId" class="col-md-3 col-form-label">Subject Name</label>
                                 <div class="col-md-9">
                                     <select class="form-control single-select" ng-options="subject.SubjectId as subject.SubjectName for subject in Subjects" ng-model="SubjectId" id="SubjectId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="studentEnrollmentForm.SubjectId.$touched && studentEnrollment.SubjectId.$error.required">Subject name is required.</span>
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="CourseId" class="col-md-3 col-form-label">Grade</label>
                                 <div class="col-md-9">
-                                    <select class="form-control single-select" ng-options="grade.GradeId as grade.GradeName for grade in Grades" ng-model="GradeId" id="GradeId"></select>
+                                    <select class="form-control single-select" ng-options="grade.GradeId as grade.GradeName for grade in Grades" ng-model="GradeId" id="GradeId" name="GradeId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="studentEnrollmentForm.GradeId.$touched && studentEnrollment.GradeId.$error.required">Subject name is required.</span>
+
                                 </div>
                             </div>
 

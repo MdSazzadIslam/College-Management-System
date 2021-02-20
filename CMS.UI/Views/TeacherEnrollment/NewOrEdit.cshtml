@@ -27,26 +27,36 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form id="AddNewForm" name="AddNewForm" novalidate>
+                        <form id="TeacherEnrollment" name="TeacherEnrollment" novalidate>
                             <input class="form-control" readonly="readonly" id="TeacherEnrollmentId" name="TeacherEnrollmentId" value="@Model.TeacherEnrollmentId"
                                    ng-model="TeacherEnrollmentId" type="hidden" placeholder="Teacher Enrollment Id will generate automatically" />
 
                             <div class="form-group row">
                                 <label for="TeacherId" class="col-md-3 col-form-label">Teacher Name</label>
                                 <div class="col-md-9">
-                                    <select class="form-control single-select" ng-options="Teacher.TeacherId as Teacher.TeacherName for Teacher in Teachers" ng-model="TeacherId" id="TeacherId"></select>
+                                    <select class="form-control single-select" ng-options="Teacher.TeacherId as Teacher.TeacherName for Teacher in Teachers" ng-model="TeacherId" id="TeacherId" name="TeacherId"></select>
+
+
+                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollment.TeacherId.$touched && TeacherEnrollment.TeacherId.$error.required">Teacher name is required.</span>
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="CourseId" class="col-md-3 col-form-label">Course Name</label>
                                 <div class="col-md-9">
-                                    <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" ng-change="GetSubjectByCourseId(CourseId)" id="CourseId"></select>
+                                    <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" ng-change="GetSubjectByCourseId(CourseId)" id="CourseId" name="CourseId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollment.CourseId.$touched && TeacherEnrollment.CourseId.$error.required">Course name is required.</span>
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="CourseId" class="col-md-3 col-form-label">Subject Name</label>
                                 <div class="col-md-9">
-                                    <select class="form-control single-select" ng-options="subject.SubjectId as subject.SubjectName for subject in Subjects" ng-model="SubjectId" id="SubjectId"></select>
+                                    <select class="form-control single-select" ng-options="subject.SubjectId as subject.SubjectName for subject in Subjects" ng-model="SubjectId" id="SubjectId" name="SubjectId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollment.SubjectId.$touched && TeacherEnrollment.SubjectId.$error.required">Subject name is required.</span>
+
                                 </div>
                             </div>
 

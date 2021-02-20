@@ -36,8 +36,10 @@
                             <div class="form-group row">
                                 <label for="CourseCode" class="col-md-3 col-form-label">Course Code</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="CourseCode" placeholder="Course Code" ng-model="CourseCode" autofocus ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="CourseForm.CourseCode.$error.required && CourseForm.CourseCode.$dirty">Course code is required</span>
+                                    <input type="text"  class="form-control" id="CourseCode" placeholder="Course Code" name="CourseCode" ng-model="CourseCode" autofocus ng-required="true">
+                                  @*<span class="help-block" style="color:red;" ng-if="CourseForm.CourseCode.$error.required && CourseForm.CourseCode.$dirty">Course code is required</span>*@ 
+                                   <span class="help-block" style="color:red;" ng-show="CourseForm.CourseCode.$touched && CourseForm.CourseCode.$error.required">Course code is required.</span>
+
                                 </div>
 
                             </div>
@@ -45,16 +47,22 @@
                             <div class="form-group row">
                                 <label for="CourseName" class="col-md-3 col-form-label">Course Name</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="CourseName" placeholder="Course Name" ng-model="CourseName" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="CourseForm.CourseName.$error.required && CourseForm.CourseName.$dirty">Course name is required</span>
+                                    <input type="text" class="form-control" id="CourseName" name="CourseName" placeholder="Course Name" ng-model="CourseName" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="CourseForm.CourseName.$error.required && CourseForm.CourseName.$dirty">Course name is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="CourseForm.CourseName.$touched && CourseForm.CourseName.$error.required">Course name is required.</span>
+
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="CourseName" class="col-md-3 col-form-label">Course Credit</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="CourseCredit" placeholder="Course Credit" ng-model="CourseCredit" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="CourseForm.CourseCredit.$error.required && CourseForm.CourseCredit.$dirty">Course name is required</span>
+                                    <input type="text" class="form-control" id="CourseCredit" name="CourseCredit" placeholder="Course Credit" ng-model="CourseCredit" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="CourseForm.CourseCredit.$error.required && CourseForm.CourseCredit.$dirty">Course name is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="CourseForm.CourseCredit.$touched && CourseForm.CourseCredit.$error.required">Course credit required.</span>
+
                                 </div>
                             </div>
 

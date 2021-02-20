@@ -177,7 +177,7 @@ namespace CMS.Services.Subject
 
                 return new ResultModel { Id = entity.SubjectId.ToString(), Result = true, Message = NotificationMessageConfig.InsertSuccessMessage(model.SubjectName) };
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new ResultModel { Result = false, Message = NotificationMessageConfig.InsertErrorMessage(model.SubjectName) };
             }

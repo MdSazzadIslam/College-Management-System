@@ -119,7 +119,7 @@ namespace CMS.Services.TeacherEnrollment
 
                 return new ResultModel { Id = entity.TeacherId.ToString(), Result = true, Message = NotificationMessageConfig.InsertSuccessMessage(model.TeacherId.ToString()) };
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new ResultModel { Result = false, Message = NotificationMessageConfig.InsertErrorMessage(model.TeacherId.ToString()) };
             }

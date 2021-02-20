@@ -10,7 +10,7 @@
     <div ng-app="myApp">
 
         <div class="row" ng-controller="subject-controller">
-            <div class="col-lg-12"  data-ng-init="onloadFun()">
+            <div class="col-lg-12" data-ng-init="onloadFun()">
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
@@ -32,11 +32,23 @@
                             <input class="form-control" readonly="readonly" id="SubjectId" name="SubjectId" value="@Model.SubjectId"
                                    ng-model="SubjectId" type="hidden" placeholder="Subject id will generate automatically" />
 
+
+
+                            @*<div class="form-group row">
+            <label for="CourseId" class="col-md-3 col-form-label">Course Name</label>
+            <div class="col-md-9">
+                <select class="form-control" ng-options="courcse.CourseId as courcse.CourseName for courcse in Courses" ng-model="CourseId"></select>
+                <span class="help-block" style="color:red;" ng-if="SubjectForm.CourseId.$error.required && SubjectForm.CourseId.$dirty">Course name is required</span>
+
+            </div>
+        </div>*@
+
                             <div class="form-group row">
                                 <label for="CourseId" class="col-md-3 col-form-label">Course Name</label>
                                 <div class="col-md-9">
-                                    <select class="form-control" ng-options="courcse.CourseId as courcse.CourseName for courcse in Courses" ng-model="CourseId"></select>
-                                    <span class="help-block" style="color:red;" ng-if="SubjectForm.CourseId.$error.required && SubjectForm.CourseId.$dirty">Course name is required</span>
+                                    <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" id="CourseId" name="CourseId"></select>
+
+                                    <span class="help-block" style="color:red;" ng-show="SubjectForm.CourseId.$touched && SubjectForm.CourseId.$error.required">Subject is required.</span>
 
                                 </div>
                             </div>
@@ -44,17 +56,24 @@
                             <div class="form-group row">
                                 <label for="SubjectCode" class="col-md-3 col-form-label">Subject Code</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="SubjectCode" placeholder="SubjectCode" ng-model="SubjectCode" ng-required="true" autofocus>
-                                    <span class="help-block" style="color:red;" ng-if="SubjectForm.SubjectCode.$error.required && SubjectForm.SubjectCode.$dirty">Subject code is required</span>
+                                    <input type="text" class="form-control" id="SubjectCode" placeholder="SubjectCode" ng-model="SubjectCode" ng-required="true" name ="SubjectCode" autofocus>
+                                    @*<span class="help-block" style="color:red;" ng-if="SubjectForm.SubjectCode.$error.required && SubjectForm.SubjectCode.$dirty">Subject code is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="SubjectForm.SubjectCode.$touched && SubjectForm.SubjectCode.$error.required">Subject code is required.</span>
+
                                 </div>
-                            
+
                             </div>
 
                             <div class="form-group row">
                                 <label for="SubjectName" class="col-md-3 col-form-label">Subject Name</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="SubjectName" placeholder="Name" ng-model="SubjectName" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="SubjectForm.SubjectName.$error.required && SubjectForm.SubjectName.$dirty">Subject name is required</span>
+                                    <input type="text" class="form-control" id="SubjectName" name="SubjectName" placeholder="Name" ng-model="SubjectName" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="SubjectForm.SubjectName.$error.required && SubjectForm.SubjectName.$dirty">Subject name is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="SubjectForm.SubjectName.$touched && SubjectForm.SubjectName.$error.required">Subject name is required.</span>
+
+
                                 </div>
                             </div>
 
@@ -62,8 +81,11 @@
                             <div class="form-group row">
                                 <label for="CourseCredit" class="col-md-3 col-form-label">Subject Credit</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="SubjectCredit" placeholder="Subject Credit" ng-model="SubjectCredit" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="SubjectForm.SubjectCredit.$error.required && SubjectForm.SubjectCredit.$dirty">Subject credit is required</span>
+                                    <input type="text" class="form-control" id="SubjectCredit" name="SubjectCredit" placeholder="Subject Credit" ng-model="SubjectCredit" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="SubjectForm.SubjectCredit.$error.required && SubjectForm.SubjectCredit.$dirty">Subject credit is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="SubjectForm.SubjectCredit.$touched && SubjectForm.SubjectCredit.$error.required">Subject credit is required.</span>
+
                                 </div>
                             </div>
 
@@ -83,7 +105,7 @@
                             </div>
                         </form>
                     </div>
-              
+
                 </div>
             </div>
         </div>
@@ -95,6 +117,9 @@
     <script src="~/Scripts/app/app.js"></script>
     <script src="~/Scripts/app/Services/SubjectService.js"></script>
     <script src="~/Scripts/app/Controllers/SubjectController.js"></script>
+    <script>
+        $('.single-select').select2();
+    </script>
 }
 
 

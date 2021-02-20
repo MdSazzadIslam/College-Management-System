@@ -34,24 +34,35 @@
                             <div class="form-group row">
                                 <label for="TeacherName" class="col-md-3 col-form-label">Teacher Name</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="TeacherName" placeholder="Name" ng-model="TeacherName" autofocus ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="TeacherForm.TeacherName.$error.required && TeacherForm.TeacherName.$dirty">Teacher name is required</span>
+                                    <input type="text" class="form-control" id="TeacherName" name="TeacherName" placeholder="Name" ng-model="TeacherName" autofocus ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="TeacherForm.TeacherName.$error.required && TeacherForm.TeacherName.$dirty">Teacher name is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="TeacherForm.TeacherName.$touched && TeacherForm.TeacherName.$error.required">Teacher name is required.</span>
+
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="BirthDate" class="col-md-3 col-form-label">Birth Date</label>
                                 <div class="col-md-9">
-                                    <input type="text" id="BirthDate" class="form-control" placeholder="DD/MM/YYYY" ng-model="BirthDate" ng-required="true" readonly="readonly">
-                                    <span class="help-block" style="color:red;" ng-if="TeacherForm.BirthDate.$error.required && TeacherForm.BirthDate.$dirty">Birth date is required</span>
+                                    <input type="text" id="BirthDate" name="BirthDate" class="form-control" placeholder="DD/MM/YYYY" ng-model="BirthDate" ng-required="true" readonly="readonly">
+
+                                    @*<span class="help-block" style="color:red;" ng-if="TeacherForm.BirthDate.$error.required && TeacherForm.BirthDate.$dirty">Birth date is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="TeacherForm.BirthDate.$touched && TeacherForm.BirthDate.$error.required">Birthdate is required.</span>
+
+
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="Salary" class="col-md-3 col-form-label">Salary</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="Salary" placeholder="Registration Number" ng-model="Salary" ng-required="true">
-                                    <span class="help-block" style="color:red;" ng-if="TeacherForm.Salary.$error.required && TeacherForm.Salary.$dirty">Salary is required</span>
+                                    <input type="text" class="form-control" id="Salary" name="Salary" placeholder="Registration Number" ng-model="Salary" ng-required="true">
+                                    @*<span class="help-block" style="color:red;" ng-if="TeacherForm.Salary.$error.required && TeacherForm.Salary.$dirty">Salary is required</span>*@
+
+                                    <span class="help-block" style="color:red;" ng-show="TeacherForm.Salary.$touched && TeacherForm.Salary.$error.required">Salary is required.</span>
+
                                 </div>
                             </div>
 

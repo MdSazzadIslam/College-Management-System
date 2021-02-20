@@ -42,6 +42,7 @@
 
 
     function getCourseToUpdate(id) {
+        debugger;
         var CourseRecords = courseService.getCourseToUpdate(id);
         CourseRecords.then(function (d) {
             //success
@@ -51,6 +52,7 @@
             $scope.CourseCredit = d.data.CourseCredit;
         },
             function () {
+                
                 AppUtil.ShowNotification("error", "Error occured while fetching Course list...");
             });
     }
@@ -119,6 +121,7 @@
         updateData.then(function (d) {
             if (d.data.Result === true) {
                 AppUtil.ShowNotification("success", d.data.Message);
+
                
                 $scope.resetUpdate();
                 $window.location.href = '/Course/Index';
