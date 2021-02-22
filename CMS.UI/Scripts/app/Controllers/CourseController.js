@@ -1,8 +1,11 @@
 ﻿myapp.controller('course-controller', function ($scope, courseService) {
-    
+
+
     $scope.getCourse = function () {
         //Loads all course records when page loads
+      
         getCourse();
+ 
     }
     $scope.getCourseDetails = function () {
         //Loads all course records when page loads

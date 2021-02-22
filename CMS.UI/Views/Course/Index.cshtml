@@ -6,7 +6,8 @@
 <div ng-app="myApp">
 
     <div class="row" ng-controller="course-controller" data-ng-init="getCourse()">
-        <div class="container-fluid" >
+
+        <div class="container-fluid">
             @Html.Partial("_Breadcrumb")
 
             <div class="card">
@@ -23,17 +24,17 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
                 <div class="card-body">
-                   
-                        <div class="input-group mb-3">
-                            <input type="text" ng-model="searchBy" ng-change="getCourseById(searchBy)"  class="form-control" placeholder="Enter any keyword for searching...">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Search</span>
-                            </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" ng-model="searchBy" ng-change="getCourseById(searchBy)" class="form-control" placeholder="Enter any keyword for searching...">
+                        <div class="input-group-append">
+                            <span class="input-group-text">Search</span>
                         </div>
-                  
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
