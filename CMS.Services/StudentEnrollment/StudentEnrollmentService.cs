@@ -20,6 +20,8 @@ namespace CMS.Services.StudentEnrollment
         }
         public async Task<List<StudentEnrollmentVM>> GetAll()
         {
+            //Include() allows you to indicate which related entities should be read from the database as part of the same query.
+
             var list =await _unitOfWork.Repository<CMS.Data.AppModel.StudentEnrollment>().GetAll().Include(x=>x.Students).Include(x=>x.Courses).Include(x=>x.Subjects).Where(x => x.Deleted == false)
                 .Select(x=>new StudentEnrollmentVM { 
                    StudentEnrollmentId =x.StudentEnrollmentId,

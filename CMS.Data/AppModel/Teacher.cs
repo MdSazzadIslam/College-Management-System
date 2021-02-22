@@ -1,4 +1,5 @@
 ﻿using CMS.Data.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,7 +21,11 @@ namespace CMS.Data.AppModel
         public string TeacherName { get; set; }
 
         [Required(ErrorMessage = "Birthdate is required", AllowEmptyStrings = false)]
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
+       
+        
+        //[Required(ErrorMessage = "Birthdate is required", AllowEmptyStrings = false)]
+        //public DateTime BirthDate { get; set; }
 
         [Required(ErrorMessage = "Salary is required", AllowEmptyStrings = false)]
         public double Salary { get; set; }

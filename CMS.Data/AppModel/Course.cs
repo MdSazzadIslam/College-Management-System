@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.AppModel
 {
+    //An entity is the tabular representation of your domain class/object in the database and has an identity. 
+    //In fact, an entity represents a single instance of your domain object saved into the database as a record. 
+    //It has some attributes that we represent as columns in our tables.
+
     [Table("Course")]
     public class Course:BaseModel
     {

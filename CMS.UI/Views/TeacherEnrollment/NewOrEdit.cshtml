@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form id="TeacherEnrollment" name="TeacherEnrollment" novalidate>
+                        <form id="TeacherEnrollmentForm" name="TeacherEnrollmentForm" novalidate role="form">
                             <input class="form-control" readonly="readonly" id="TeacherEnrollmentId" name="TeacherEnrollmentId" value="@Model.TeacherEnrollmentId"
                                    ng-model="TeacherEnrollmentId" type="hidden" placeholder="Teacher Enrollment Id will generate automatically" />
 
@@ -37,7 +37,7 @@
                                     <select class="form-control single-select" ng-options="Teacher.TeacherId as Teacher.TeacherName for Teacher in Teachers" ng-model="TeacherId" id="TeacherId" name="TeacherId"></select>
 
 
-                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollment.TeacherId.$touched && TeacherEnrollment.TeacherId.$error.required">Teacher name is required.</span>
+                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollmentForm.TeacherId.$touched && TeacherEnrollmentForm.TeacherId.$error.required">Teacher name is required.</span>
 
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="col-md-9">
                                     <select class="form-control single-select" ng-options="course.CourseId as course.CourseName for course in Courses" ng-model="CourseId" ng-change="GetSubjectByCourseId(CourseId)" id="CourseId" name="CourseId"></select>
 
-                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollment.CourseId.$touched && TeacherEnrollment.CourseId.$error.required">Course name is required.</span>
+                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollmentForm.CourseId.$touched && TeacherEnrollmentForm.CourseId.$error.required">Course name is required.</span>
 
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                 <div class="col-md-9">
                                     <select class="form-control single-select" ng-options="subject.SubjectId as subject.SubjectName for subject in Subjects" ng-model="SubjectId" id="SubjectId" name="SubjectId"></select>
 
-                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollment.SubjectId.$touched && TeacherEnrollment.SubjectId.$error.required">Subject name is required.</span>
+                                    <span class="help-block" style="color:red;" ng-show="TeacherEnrollmentForm.SubjectId.$touched && TeacherEnrollmentForm.SubjectId.$error.required">Subject name is required.</span>
 
                                 </div>
                             </div>
@@ -66,11 +66,11 @@
 
                                     @if (Model.TeacherEnrollmentId > 0)
                                     {
-                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()"><i class="fa fa-check-square-o"></i> Update</button>
+                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()"  ng-disabled="TeacherEnrollmentForm.$invalid"><i class="fa fa-check-square-o"></i> Update</button>
                                     }
                                     else
                                     {
-                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()" ng-disabled="TeacherEnrollmentForm.$invalid"><i class="fa fa-check-square-o"></i> SAVE</button>
                                     }
                                 </div>
                             </div>

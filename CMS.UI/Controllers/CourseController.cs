@@ -60,7 +60,7 @@ namespace CMS.UI.Controllers
 
         public async Task<JsonResult> getCourseToUpdate(int id)
         {
-            var list = await _courseService.GetById(id);
+            var list = await _courseService.GetCourseById(id);
             ViewBag.PageUrl = this.ControllerContext.RouteData.Values["controller"].ToString();
             return Json(list, JsonRequestBehavior.AllowGet);
         }

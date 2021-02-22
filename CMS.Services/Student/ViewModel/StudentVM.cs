@@ -14,7 +14,7 @@ namespace CMS.Services.Student.ViewModel
         public string StudentName { get; set; }
 
         [Required(ErrorMessage = "Birthdate is required", AllowEmptyStrings = false)]
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         [Required(ErrorMessage = "Registration is required", AllowEmptyStrings = false)]
         public string RegistrationNo { get; set; }

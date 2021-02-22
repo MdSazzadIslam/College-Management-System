@@ -44,6 +44,7 @@
     function getCourseToUpdate(id) {
         debugger;
         var CourseRecords = courseService.getCourseToUpdate(id);
+        debugger;
         CourseRecords.then(function (d) {
             //success
             $scope.CourseId = d.data.CourseId;
@@ -122,9 +123,8 @@
             if (d.data.Result === true) {
                 AppUtil.ShowNotification("success", d.data.Message);
 
-               
-                $scope.resetUpdate();
-                $window.location.href = '/Course/Index';
+                //$scope.resetUpdate();
+                //$window.location.href = '/Course/Index';
             }
             else {
                 AppUtil.ShowNotification("error", d.data.Message);

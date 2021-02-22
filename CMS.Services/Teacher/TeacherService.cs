@@ -26,7 +26,8 @@ namespace CMS.Services.Teacher
                 TeacherId = x.TeacherId,
                 TeacherName=x.TeacherName,
                 BirthDate = x.BirthDate,
-                Salary = x.Salary,
+
+                    Salary = x.Salary,
                 })
                 .OrderByDescending(x => x.TeacherId).ToListAsync();
             return list;

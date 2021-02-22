@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class MyFirstMigration : DbMigration
+    public partial class FirstMigration : DbMigration
     {
         public override void Up()
         {
@@ -122,7 +122,7 @@
                     {
                         TeacherId = c.Int(nullable: false, identity: true),
                         TeacherName = c.String(nullable: false),
-                        BirthDate = c.DateTime(nullable: false),
+                        BirthDate = c.String(nullable: false),
                         Salary = c.Double(nullable: false),
                         Deleted = c.Boolean(nullable: false),
                         CreateDate = c.DateTime(),

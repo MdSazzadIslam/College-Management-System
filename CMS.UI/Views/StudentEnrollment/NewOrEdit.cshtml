@@ -74,11 +74,11 @@
 
                                     @if (Model.StudentEnrollmentId > 0)
                                     {
-                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()"><i class="fa fa-check-square-o"></i> Update</button>
+                                        <button type="button" id="btnUpdate" class="btn btn-success" ng-click="update()" ng-disabled="studentEnrollmentForm.$invalid"><i class="fa fa-check-square-o"></i> Update</button>
                                     }
                                     else
                                     {
-                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                        <button type="button" id="btnSave" class="btn btn-success" ng-click="save()"  ng-disabled="studentEnrollmentForm.$invalid"><i class="fa fa-check-square-o"></i> SAVE</button>
                                     }
                                 </div>
                             </div>

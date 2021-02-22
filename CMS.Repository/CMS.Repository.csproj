@@ -56,9 +56,13 @@
     <Compile Include="DBlnitializer.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
-    <Compile Include="Migrations\202102060803095_MyFirstMigration.cs" />
-    <Compile Include="Migrations\202102060803095_MyFirstMigration.designer.cs">
-      <DependentUpon>202102060803095_MyFirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202102220619166_FirstMigration.cs" />
+    <Compile Include="Migrations\202102220619166_FirstMigration.designer.cs">
+      <DependentUpon>202102220619166_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102220642324_nextmigration.cs" />
+    <Compile Include="Migrations\202102220642324_nextmigration.designer.cs">
+      <DependentUpon>202102220642324_nextmigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,8 +80,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102060803095_MyFirstMigration.resx">
-      <DependentUpon>202102060803095_MyFirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102220619166_FirstMigration.resx">
+      <DependentUpon>202102220619166_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102220642324_nextmigration.resx">
+      <DependentUpon>202102220642324_nextmigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

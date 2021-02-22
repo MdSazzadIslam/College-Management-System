@@ -23,7 +23,7 @@ namespace CMS.Repository
         {
 
             //delete previous db
-            //new database for every test\
+            //new database for every migration
 
             Database.Delete();
             Database.CreateIfNotExists();
